@@ -1,2 +1,3 @@
-.row.small-up-2.medium-up-3.large-up-6
-  = render @products
+.row-small-up-2.medium-up-4.large-up-4
+  - cache ['products', Product.latest] do
+    = render @products

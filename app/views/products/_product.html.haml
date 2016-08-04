@@ -1,4 +1,5 @@
-.column
-  = image_tag product.url, class:"thumbnail"
-  %h5= product.title
-  %p$#{product.price}
+- cache ['entry', product] do
+  .column
+    = image_tag product.url, class:"thumbnail"
+    %h5= product.title
+    %p= number_to_currency(product.price)

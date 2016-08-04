@@ -5,7 +5,8 @@
   #navbar.top-bar
     .top-bar-left
       %ul.menu{"data-responsive-menu": "accordion"}
-        %li.menu-text MovieWorld
+        %li
+          = link_to "MovieWorld", root_path, class:"menu-text"
         %li
           = link_to "Create new product", new_product_path
         %li

@@ -10,4 +10,7 @@
     = csrf_meta_tag
   %body{class: page_class}
     = render "layouts/shared/nav_bar"
-    = yield
+    .row
+      .large-2.columns
+      .large-10.columns
+        = yield
