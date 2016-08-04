@@ -18,12 +18,18 @@ class ProductsController < ApplicationController
           render json: @product, status: :created, location: @product
         }
       else
-        format.html { render :index }
+        format.html { render :new }
         format.js   {}
         format.json {
           render json: @product.errors, status: :unprocessable_entity
         }
       end
     end
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:title, :description, :url, :price)
   end
 end
