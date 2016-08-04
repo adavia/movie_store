@@ -1,0 +1,18 @@
+%nav.navigation
+  .title-bar{"data-hide-for": "small", "data-responsive-toggle": "navbar"}
+    %button.menu-icon{"data-toggle": "", type: "button"}
+    .title-bar-title Menu
+  #navbar.top-bar
+    .top-bar-left
+      %ul.menu{"data-responsive-menu": "accordion"}
+        %li.menu-text MovieWorld
+        %li
+          = link_to "Create new product", new_product_path
+        %li
+          %a{href: "#"} Two
+        %li
+          %a{href: "#"} Three
+    .top-bar-right
+      %ul.menu
+        %li
+          %a{href: "#"} My Account
