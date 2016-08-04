@@ -1,3 +1,8 @@
-.row-small-up-2.medium-up-4.large-up-4
-  - cache ['products', Product.latest] do
-    = render @products
+- if notice
+  .success.callout.small
+    %p.text-center= notice
+
+.row
+  .row-small-up-2.medium-up-4.large-up-4
+    - cache ['products', Product.latest] do
+      = render @products

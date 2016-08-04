@@ -3,3 +3,5 @@
     = image_tag product.url, class:"thumbnail"
     %h5= product.title
     %p= number_to_currency(product.price)
+    = button_to "Add to cart", line_items_path(product_id: product),
+      class:"button small expanded hollow"
