@@ -2,9 +2,5 @@
   .success.callout.small
     %p= notice
 
-%h2 Your movie cart
-
-%ul
-  - @cart.line_items.each do |item|
-    %li #{item.quantity} &times; #{item.product.title}
+= render @cart
 

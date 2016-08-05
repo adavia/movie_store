@@ -1,0 +1,12 @@
+%h4 Your movie cart
+
+%table
+  %thead
+    = render @cart.line_items
+    %tr
+      %td Cart total
+      %td= number_to_currency(@cart.total_price)
+
+= button_to 'Empty cart', @cart, method: :delete,
+  data: { confirm: 'Are you sure?' }, class: "alert hollow button"
+
