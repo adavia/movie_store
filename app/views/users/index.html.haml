@@ -1,0 +1,10 @@
+.row
+  %h6.header User list
+  .row-small-up-2.medium-up-4.large-up-4
+    - @users.each do |user|
+      .media-object
+        .media-object-section
+          %img.thumbnail{:src => "http://placehold.it/100x100"}/
+        .media-object-section
+          %h5= user.name
+          %p Joined #{time_ago_in_words(user.created_at)}

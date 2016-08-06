@@ -1,0 +1,7 @@
+= simple_form_for @order do |f|
+  = f.input :name, label: false, placeholder: "Name"
+  = f.input :address, label: false, placeholder: "Address"
+  = f.input :email, label: false, placeholder: "Email"
+  = f.select :pay_type, Order::PAYMENT_TYPES,
+    prompt: 'Select a payment method'
+  = f.button :submit, "Create new order"

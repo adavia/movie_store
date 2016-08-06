@@ -11,8 +11,4 @@
   %body{class: page_class}
     = render "layouts/shared/nav_bar"
     .row
-      .large-8.columns
-        = yield
-      .large-4.columns
-        #cart
-          = render @cart
+      = yield

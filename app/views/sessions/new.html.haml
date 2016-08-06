@@ -1,0 +1,12 @@
+.large-6.large-offset-3.columns
+  .signin_user_form
+    - if flash[:alert]
+      .success.callout.small
+        %p.text-center= flash[:alert]
+
+    %h6.header Login to the app
+
+    = simple_form_for :session, { url: login_path } do |f|
+      = f.input :name, label: false, placeholder: "Username"
+      = f.input :password, label: false, placeholder: "Password"
+      = f.button :submit, "Sign In"

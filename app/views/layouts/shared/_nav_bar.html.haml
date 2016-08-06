@@ -8,8 +8,14 @@
         %li
           = link_to "MovieWorld", root_path, class:"menu-text"
         %li
-          = link_to "Create new product", new_product_path
+          = link_to_if logged_in?, "Create new product", new_product_path
     .top-bar-right
       %ul.menu
-        %li
-          %a{href: "#"} My Account
+        - if logged_in?
+          %li
+            = link_to "Sign Out", logout_path, method: :delete
+        - else
+          %li
+            = link_to "Sign Up", new_user_path
+          %li
+            = link_to "Sign In", login_path

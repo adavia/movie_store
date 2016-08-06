@@ -1,0 +1,6 @@
+= simple_form_for @user do |f|
+  = f.input :name, label: false, placeholder: "Username"
+  = f.password_field :password, label: false, placeholder: "Password"
+  = f.password_field :password_confirmation, label: false,
+    placeholder: "Password Confirmation"
+  = f.button :submit, "Create new account"

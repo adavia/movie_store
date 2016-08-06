@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   include CurrentCart
 
+  skip_before_action :authorize, only: :destroy
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -12,8 +13,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to root_url,
-        notice: 'Your cart is currently empty' }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
