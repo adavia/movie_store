@@ -21,6 +21,8 @@ gem 'devise'
 gem 'simple_form'
 # Use foundation css
 gem 'foundation-rails'
+# User creditcard management
+gem 'activemerchant'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

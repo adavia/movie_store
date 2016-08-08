@@ -1,0 +1,11 @@
+es:
+  layouts:
+    application:
+      title: "MundoVideo"
+    shared:
+      nav_bar:
+        title: "MundoVideo"
+        login: "Iniciar Sesión"
+        logout: "Cerrar Sesión"
+        signup: "Registrarse"
+
