@@ -53,3 +53,8 @@ label {
     @extend .is-visible;
   }
 }
+
+.date-inputs select{
+  width: 30%;
+  margin-right: 10px;
+}

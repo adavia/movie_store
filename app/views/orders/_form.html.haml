@@ -1,7 +1,17 @@
+= @order.errors.full_messages
+
 = simple_form_for @order do |f|
   = f.input :name, label: false, placeholder: "Name"
   = f.input :address, label: false, placeholder: "Address"
   = f.input :email, label: false, placeholder: "Email"
-  = f.select :pay_type, Order::PAYMENT_TYPES,
-    prompt: 'Select a payment method'
+  = f.select :card_type, Order::CREDIT_CARD_TYPES,
+    prompt: 'Select a card type'
+  = f.input :card_number, label: false, placeholder: "Card Number"
+  = f.input :card_verification, label: false,
+    placeholder: "Card Verification Value (CVV)"
+  .date-inputs
+    = f.date_select :card_expires_on, discard_day: true,
+      start_year: Date.today.year, end_year: (Date.today.year + 10),
+      add_month_numbers: true
+    %p.help-text Credit Card Expiration
   = f.button :submit, "Create new order"
