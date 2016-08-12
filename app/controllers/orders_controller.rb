@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.ip_address = request.remote_ip
+    @order.user = current_user if current_user
     @order.add_line_items_from_cart(@cart)
 
     respond_to do |format|

@@ -7,9 +7,8 @@
       %td Cart total
       %td= number_to_currency(@cart.total_price)
 
-= button_to "Checkout", new_order_path, method: :get,
-  class: "success button float-left"
+= link_to "Checkout", new_order_path, class: "success button float-left"
 
-= button_to 'Empty cart', @cart, method: :delete,
+= link_to 'Empty cart', @cart, method: :delete,
   data: { confirm: 'Are you sure?' }, class: "alert button float-right"
 

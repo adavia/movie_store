@@ -14,6 +14,11 @@ class Order < ApplicationRecord
   validates :card_type, inclusion: CREDIT_CARD_TYPES.map { |k, v| v }
   validate :validate_card
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[(gmail|yahoo|hotmail|live|mac)]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+            format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false }
+
   attr_accessor :card_number, :card_verification
 
   def add_line_items_from_cart(cart)
@@ -24,7 +29,8 @@ class Order < ApplicationRecord
   end
 
   def purchase(cart)
-    response = GATEWAY.purchase(price_in_cents(cart.total_price), credit_card, ip: ip_address)
+    response = GATEWAY.purchase(price_in_cents(cart.total_price),
+      credit_card, ip: ip_address)
     transactions.create!(action: "purchase",
       amount: price_in_cents(cart.total_price), response: response)
     response.success?

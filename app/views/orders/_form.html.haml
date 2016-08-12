@@ -1,4 +1,7 @@
-= @order.errors.full_messages
+- if @order.errors.any?
+  .callout.alert
+    - @order.errors.full_messages.each do |error|
+      %p= error
 
 = simple_form_for @order do |f|
   = f.input :name, label: false, placeholder: "Name"
