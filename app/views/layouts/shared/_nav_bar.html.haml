@@ -8,7 +8,8 @@
         %li
           = link_to "MovieWorld", root_path, class:"menu-text"
         %li
-          = link_to_if logged_in?, "Create new product", new_product_path
+          = link_to_if logged_in? && current_user.is_admin,
+            "Create new product", new_product_path
     .top-bar-right
       %ul.menu
         - if logged_in?
